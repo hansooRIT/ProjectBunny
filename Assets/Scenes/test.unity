@@ -502,7 +502,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293852748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 398.5, y: 139, z: 0}
+  m_LocalPosition: {x: 569.5, y: 311, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 505890630}
@@ -537,7 +537,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 505890629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 39, z: 0}
+  m_LocalPosition: {x: 0, y: 211, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 735072800}
@@ -638,6 +638,7 @@ GameObject:
   - component: {fileID: 841291772}
   - component: {fileID: 841291771}
   - component: {fileID: 841291773}
+  - component: {fileID: 841291774}
   m_Layer: 0
   m_Name: Manager
   m_TagString: Untagged
@@ -684,6 +685,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   manager: {fileID: 841291770}
   bunny: {fileID: 1637730821681702, guid: d4dc61f9b779815428b0d4af088c2dbb, type: 2}
+--- !u!114 &841291774
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 841291770}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9ec83c47d8a06d4a809ff70d7d125e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  debt: 0
 --- !u!1 &888099605
 GameObject:
   m_ObjectHideFlags: 0
@@ -1014,7 +1027,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1718514813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 289, y: -21, z: 0}
+  m_LocalPosition: {x: 460, y: 151, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681253329}

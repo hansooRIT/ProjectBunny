@@ -20,24 +20,24 @@ public class DebtMeter : MonoBehaviour {
     // Adds to the player's debt by a given amount
     public void spendMoney(int num)
     {
-        debt -= num;
+        debt += num;
     }
 
     // Adds to the player's debt without a given amount
     public void spendMoney()
     {
-        debt -= 5;
+        debt += 5;
     }
 
     // Subtract from the player's debt by a given amount
     public void getMoney(int num)
     {
-        debt += num;
+        debt -= num;
     }
 
     // Subtract from the player's debt without a given amount
     public void getMoney()
     {
-        debt += 5;
+        debt -= 5;
     }
 }
