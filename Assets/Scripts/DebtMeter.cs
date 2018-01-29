@@ -1,24 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class DebtMeter : MonoBehaviour {
 
-    public int debt;
+    public float debt;
+    public GameObject Slider;
 
 	// Use this for initialization
 	void Start () {
-        debt = 0;
-	}
+        debt = Slider.GetComponent<Slider>().value;
+    }
+
+    private void Update()
+    {
+        Slider.GetComponent<Slider>().value = debt;
+    }
 
     // Gets the player's debt
-    public int getDebt()
+    public float getDebt()
     {
         return debt;
     }
 
     // Adds to the player's debt by a given amount
-    public void spendMoney(int num)
+    public void spendMoney(float num)
     {
         debt += num;
     }
@@ -26,11 +33,11 @@ public class DebtMeter : MonoBehaviour {
     // Adds to the player's debt without a given amount
     public void spendMoney()
     {
-        debt += 5;
+        debt += 50;
     }
 
     // Subtract from the player's debt by a given amount
-    public void getMoney(int num)
+    public void getMoney(float num)
     {
         debt -= num;
     }
@@ -38,6 +45,6 @@ public class DebtMeter : MonoBehaviour {
     // Subtract from the player's debt without a given amount
     public void getMoney()
     {
-        debt -= 5;
+        debt -= 50;
     }
 }
