@@ -20,6 +20,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4698480608406578}
   - component: {fileID: 212233701973641958}
+  - component: {fileID: 114834481079666026}
   m_Layer: 0
   m_Name: bunny
   m_TagString: Untagged
@@ -40,6 +41,32 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114834481079666026
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1637730821681702}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e142ca25a74b6b349a8c6f7485309c32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  velocity: {x: 0, y: 0, z: 0}
+  acceleration: {x: 0, y: 0, z: 0}
+  direction: {x: 0, y: 0, z: 0}
+  position: {x: 0, y: 0, z: 0}
+  seekingWeight: 5
+  maximumForce: 10
+  mass: 3
+  maxSpeed: 3
+  radius: 0
+  wanderWeight: 2
+  wanderRadius: 5
+  angle: 0
+  safeDist: 0
+  futureLoc: {x: 0, y: 0, z: 0}
+  bunnyTarget: {fileID: 0}
 --- !u!212 &212233701973641958
 SpriteRenderer:
   m_ObjectHideFlags: 1

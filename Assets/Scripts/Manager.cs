@@ -22,7 +22,7 @@ public class Manager : MonoBehaviour {
             //Insert Game Over function call
         }
 
-        Debug.Log("Countdown: " + timeLeft);
+        //Debug.Log("Countdown: " + timeLeft);
 
 	}
 
