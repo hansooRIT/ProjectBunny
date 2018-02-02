@@ -11,13 +11,17 @@ public class SpawnBunny : MonoBehaviour {
     
     // Use this for initialization
     void Start () {
+        GameObject newBunny = Instantiate(bunny, new Vector3(UnityEngine.Random.Range(-4.0f, -25.0f), UnityEngine.Random.Range(-3.0f, 3.0f), 0.0f), Quaternion.identity);
+        manager.GetComponent<Manager>().bunnyList.Add(newBunny);
+        GameObject newBunny2 = Instantiate(bunny, new Vector3(UnityEngine.Random.Range(-4.0f, -25.0f), UnityEngine.Random.Range(-3.0f, 3.0f), 0.0f), Quaternion.identity);
+        manager.GetComponent<Manager>().bunnyList.Add(newBunny2);
     }
 
     public void spawnBunny()
     {
         GameObject newBunny = Instantiate(bunny, new Vector3(UnityEngine.Random.Range(-4.0f, -25.0f), UnityEngine.Random.Range(-3.0f, 3.0f), 0.0f), Quaternion.identity);
         manager.GetComponent<Manager>().bunnyList.Add(newBunny);
-        manager.GetComponent<DebtMeter>().spendMoney();
+        manager.GetComponent<DebtMeter>().spendMoney(250);
         Debug.Log("Current Debt: " + manager.GetComponent<DebtMeter>().getDebt());
     }
 
