@@ -14,17 +14,9 @@ public class FenceCollision : MonoBehaviour {
 		
 	}
 
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(other.gameObject.tag == "bunny")
-        {
-            Debug.Log("bunny hit the damn fence");
-        }
-    }
-
-    void OnCollisionEnter(Collision collision)
-    {
-        if(collision.gameObject.tag == "bunny")
+        if (collision.gameObject.tag == "bunny")
         {
             Debug.Log("bunny hit fence");
         }
