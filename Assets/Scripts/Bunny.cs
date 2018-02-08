@@ -43,6 +43,7 @@ public class Bunny : MonoBehaviour {
     //Circular game object for the future location debug lies.
     //private GameObject futureLocObj;
     public GameObject bunnyTarget;
+    public GameObject cam;
 
     // Use this for initialization
     void Start () {
@@ -90,6 +91,15 @@ public class Bunny : MonoBehaviour {
 
         //Step 3: Derive a direction from the velocity.
         direction = velocity.normalized;
+        if (direction.x < 0.0)
+        {
+            gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+        }
+        else
+        {
+            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+        }
+
 
         //Step 4: Reset acceleration.
         acceleration = Vector3.zero;
@@ -112,6 +122,10 @@ public class Bunny : MonoBehaviour {
         if (bunnyTarget != null)
         {
             ultForce += Seek(bunnyTarget.transform.position, seekingWeight);
+        }
+        if (Mathf.Abs(gameObject.transform.position.y) > cam.GetComponent<Camera>().orthographicSize - 0.5 || Mathf.Abs(gameObject.transform.position.x) > (cam.GetComponent<Camera>().orthographicSize * 2) + 1)
+        {
+            ultForce += Seek(new Vector3(0.0f, 0.0f, 0.0f), seekingWeight);
         }
         else
         {
@@ -190,8 +204,8 @@ public class Bunny : MonoBehaviour {
         Vector3 projectedDist = position + (direction * (wanderWeight / 5));
         //Then uses perlin noise to determine an angle for the point to lie on the projected circle.
         angle = Mathf.PerlinNoise(xTimestamp, yTimestamp) * 360;
-        xTimestamp += 0.01f;
-        yTimestamp += 0.01f;
+        xTimestamp += 0.0003f;
+        yTimestamp += 0.0003f;
         Vector3 wanderLoc = new Vector3(projectedDist.x + (Mathf.Cos(angle) * wanderRadius), projectedDist.y + (Mathf.Sin(angle) * wanderRadius), 0);
         //Then the vehicle seeks towards the new point.
         return Seek(wanderLoc, wanderWeight);
