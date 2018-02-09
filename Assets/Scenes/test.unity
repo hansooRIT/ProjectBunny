@@ -575,7 +575,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293852748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 673, y: 319, z: 0}
+  m_LocalPosition: {x: 695.5, y: 319, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 505890630}
@@ -1464,7 +1464,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1718514813}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 563.5, y: 159, z: 0}
+  m_LocalPosition: {x: 586, y: 159, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1681253329}
@@ -1870,6 +1870,12 @@ Prefab:
       propertyPath: manager
       value: 
       objectReference: {fileID: 841291770}
+    - target: {fileID: 114063118201812414, guid: 3c54b184f0d4a2a43a0751b70ba25e0d,
+        type: 2}
+      propertyPath: penPieceImg
+      value: 
+      objectReference: {fileID: 1066436075547374, guid: 16a43fe53c6322545b3914b6bf2f6bc6,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 3c54b184f0d4a2a43a0751b70ba25e0d, type: 2}
   m_IsPrefabParent: 0
