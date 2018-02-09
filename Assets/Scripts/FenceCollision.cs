@@ -18,7 +18,7 @@ public class FenceCollision : MonoBehaviour {
     {
         if (collision.gameObject.tag == "bunny")
         {
-            Debug.Log("bunny hit fence");
+            //Debug.Log("bunny hit fence");
         }
     }
 }
