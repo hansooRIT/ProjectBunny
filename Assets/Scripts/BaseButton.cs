@@ -22,7 +22,7 @@ public abstract class BaseButton : MonoBehaviour {
         }
 	}
 
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         if (!clicked)
         {

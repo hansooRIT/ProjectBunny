@@ -44,6 +44,7 @@ public class Bunny : MonoBehaviour {
     //private GameObject futureLocObj;
     public GameObject bunnyTarget;
     public GameObject cam;
+    public float worth;
 
     // Use this for initialization
     void Start () {
@@ -58,6 +59,18 @@ public class Bunny : MonoBehaviour {
         UpdatePosition();
         CalcSteeringForces();
         //SetTransform();
+    }
+
+    void OnTriggerEnter2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        {
+            col.gameObject.GetComponent<BaseButton>().OnMouseDown();
+        }
+        if (col.gameObject.tag == "SellButton")
+        {
+            Destroy(gameObject);
+        }
     }
 
     /// <summary>
@@ -93,11 +106,11 @@ public class Bunny : MonoBehaviour {
         direction = velocity.normalized;
         if (direction.x < 0.0)
         {
-            gameObject.transform.rotation = new Quaternion(0, 180, 0, 0);
+            gameObject.GetComponent<SpriteRenderer>().flipX = true;
         }
         else
         {
-            gameObject.transform.rotation = new Quaternion(0, 0, 0, 0);
+            gameObject.GetComponent<SpriteRenderer>().flipX = false;
         }
 
 
