@@ -7,7 +7,8 @@ public abstract class BaseButton : MonoBehaviour
 
     public bool clicked;
     public float clickTimer;
-
+    public Sprite buttonDown;
+    public Sprite buttonUp;
     // Use this for initialization
     void Start()
     {
@@ -24,9 +25,17 @@ public abstract class BaseButton : MonoBehaviour
             clicked = false;
         }
     }
-
     void OnMouseDown()
     {
+        GetComponent<SpriteRenderer>().sprite = buttonDown;
+    }
+    void OnMouseExit()
+    {
+        GetComponent<SpriteRenderer>().sprite = buttonUp;
+    }
+    void OnMouseUp()
+    {
+        GetComponent<SpriteRenderer>().sprite = buttonUp;
         if (!clicked)
         {
             DoButtonAction();
