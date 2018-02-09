@@ -61,7 +61,7 @@ public class Bunny : MonoBehaviour {
         //SetTransform();
     }
 
-    void OnTriggerEnter2D(Collider2D col)
+    /*void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
         {
@@ -71,7 +71,7 @@ public class Bunny : MonoBehaviour {
         {
             Destroy(gameObject);
         }
-    }
+    }*/
 
     /// <summary>
     /// UpdatePosition

@@ -15,6 +15,7 @@ public class DebtMeter : MonoBehaviour {
 
     private void Update()
     {
+        debt += 500 * Time.deltaTime;
         Slider.GetComponent<Slider>().value = debt;
     }
 
@@ -33,7 +34,7 @@ public class DebtMeter : MonoBehaviour {
     // Adds to the player's debt without a given amount
     public void spendMoney()
     {
-        debt += 50;
+        debt += 2500;
     }
 
     // Subtract from the player's debt by a given amount
@@ -45,6 +46,6 @@ public class DebtMeter : MonoBehaviour {
     // Subtract from the player's debt without a given amount
     public void getMoney()
     {
-        debt -= 50;
+        debt -= 5000;
     }
 }

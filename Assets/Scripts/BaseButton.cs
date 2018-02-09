@@ -2,28 +2,40 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class BaseButton : MonoBehaviour {
+public abstract class BaseButton : MonoBehaviour
+{
 
     public bool clicked;
     public float clickTimer;
-
-	// Use this for initialization
-	void Start () {
+    public Sprite buttonDown;
+    public Sprite buttonUp;
+    // Use this for initialization
+    void Start()
+    {
         clicked = false;
         clickTimer = 0.0f;
-	}
-	
-	// Update is called once per frame
-	void Update () {
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
         clickTimer += Time.deltaTime;
         if (clickTimer > 0.3f)
         {
             clicked = false;
         }
-	}
-
-    public void OnMouseDown()
+    }
+    void OnMouseDown()
     {
+        GetComponent<SpriteRenderer>().sprite = buttonDown;
+    }
+    void OnMouseExit()
+    {
+        GetComponent<SpriteRenderer>().sprite = buttonUp;
+    }
+    void OnMouseUp()
+    {
+        GetComponent<SpriteRenderer>().sprite = buttonUp;
         if (!clicked)
         {
             DoButtonAction();

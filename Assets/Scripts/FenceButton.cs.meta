@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: 99d3848e312827e4aaa1ecc05ac3ee6c
+timeCreated: 1518162120
+licenseType: Free
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - buttonDown: {fileID: 21300000, guid: 7320efd6b158e57409c5a611155b08ae, type: 3}
+  - buttonUp: {fileID: 21300000, guid: 03deca314f14a68499ccec1a8208f45a, type: 3}
+  - manager: {instanceID: 0}
+  - penPieceImg: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
