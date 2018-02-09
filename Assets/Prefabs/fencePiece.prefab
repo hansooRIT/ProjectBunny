@@ -25,7 +25,7 @@ GameObject:
   - component: {fileID: 114065953177687312}
   - component: {fileID: 50999305123385192}
   m_Layer: 0
-  m_Name: movableFence
+  m_Name: fencePiece
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
