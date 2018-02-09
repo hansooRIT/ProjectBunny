@@ -7,6 +7,7 @@ public class FenceButton : BaseButton {
 
     public GameObject manager;
     public GameObject penPieceImg;
+
     /*
     // Use this for initialization
     void Start () {
