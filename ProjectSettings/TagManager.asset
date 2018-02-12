@@ -8,6 +8,8 @@ TagManager:
   - Undefined
   - AdultBunny
   - WildBunny
+  - SellButton
+  - Button
   layers:
   - Default
   - TransparentFX

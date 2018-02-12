@@ -25,7 +25,7 @@ public abstract class BaseButton : MonoBehaviour
             clicked = false;
         }
     }
-    void OnMouseDown()
+    public void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().sprite = buttonDown;
     }

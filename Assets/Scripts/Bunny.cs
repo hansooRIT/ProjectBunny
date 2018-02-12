@@ -61,17 +61,29 @@ public class Bunny : MonoBehaviour {
         //SetTransform();
     }
 
-    /*void OnTriggerEnter2D(Collider2D col)
+    void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
         {
-            col.gameObject.GetComponent<BaseButton>().OnMouseDown();
+            if (col.gameObject.name == "BuyFenceButton") {
+                col.gameObject.GetComponent<FenceButton>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "BuyLandButton"){
+                col.gameObject.GetComponent<CameraZoom>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "UpgradeFenceButton")
+            {
+                col.gameObject.GetComponent<UpgradePen>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "BuyBunnyButton") {
+                col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
+            }
         }
         if (col.gameObject.tag == "SellButton")
         {
             Destroy(gameObject);
         }
-    }*/
+    }
 
     /// <summary>
     /// UpdatePosition
