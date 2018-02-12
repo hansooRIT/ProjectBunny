@@ -5,47 +5,70 @@ using UnityEngine.UI;
 
 public class DebtMeter : MonoBehaviour {
 
-    public float debt;
+    public float money;
     public GameObject Slider;
+    public GameObject displayMoney;
 
 	// Use this for initialization
 	void Start () {
-        debt = Slider.GetComponent<Slider>().value;
+        money = Slider.GetComponent<Slider>().value;
     }
 
     private void Update()
     {
-        debt += 500 * Time.deltaTime;
-        Slider.GetComponent<Slider>().value = debt;
+        //money += 500 * Time.deltaTime;
+        getMoney();
+        Debug.Log(money);
+        Slider.GetComponent<Slider>().value = money;
+
+        int truncatedMoney = (int)money;
+        displayMoney.GetComponent<Text>().text = "Money: " + truncatedMoney;
     }
 
-    // Gets the player's debt
-    public float getDebt()
+    // Gets the player's money
+    public float getmoney()
     {
-        return debt;
+        return money;
     }
 
-    // Adds to the player's debt by a given amount
+    // Adds to the player's money by a given amount
     public void spendMoney(float num)
     {
-        debt += num;
+        money -= num;
     }
 
-    // Adds to the player's debt without a given amount
+    // Adds to the player's money without a given amount
     public void spendMoney()
     {
-        debt += 2500;
+        money -= 2500;
     }
 
-    // Subtract from the player's debt by a given amount
+    // Subtract from the player's money by a given amount
     public void getMoney(float num)
     {
-        debt -= num;
+        money += num;
     }
 
-    // Subtract from the player's debt without a given amount
+    // Subtract from the player's money without a given amount
     public void getMoney()
     {
-        debt -= 5000;
+        int num = 500;
+        if(money > 49900){} // don't do anything here
+        else if(money > 49500)
+        {
+            money += 1;
+        }
+        else if(money > 45000)
+        {
+            money += num * 0.5f;
+        }
+        else if(money > 30000)
+        {
+            money += num / (money * 0.01f);
+        }
+        else
+        {
+            money += num;
+        }
     }
 }
