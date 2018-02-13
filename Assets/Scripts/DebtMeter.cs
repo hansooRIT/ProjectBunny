@@ -58,7 +58,19 @@ public class DebtMeter : MonoBehaviour
     // Subtract from the player's money by a given amount
     public void getMoney(float num)
     {
-        money += num;
+        if (money > 49853) { } // Stop adding past a certain point
+        else if (money > 49000)
+        {
+            money += num / 100;
+        }
+        else if (money > 10)
+        {
+            money += num * money * 0.00004f / ((money * 0.0001f) * (money * 0.0001f));
+        }
+        else
+        {
+            money += num;
+        }
     }
 
     // Subtract from the player's money without a given amount

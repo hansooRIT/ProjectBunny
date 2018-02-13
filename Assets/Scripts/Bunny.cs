@@ -81,6 +81,7 @@ public class Bunny : MonoBehaviour {
         }
         if (col.gameObject.tag == "SellButton")
         {
+            col.gameObject.GetComponent<SellBunny>().DeleteBunny();
             Destroy(gameObject);
         }
     }

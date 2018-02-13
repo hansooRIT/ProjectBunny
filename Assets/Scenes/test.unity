@@ -768,6 +768,7 @@ GameObject:
   - component: {fileID: 601470165}
   - component: {fileID: 601470168}
   - component: {fileID: 601470164}
+  - component: {fileID: 601470169}
   m_Layer: 0
   m_Name: Sell Button UP
   m_TagString: SellButton
@@ -879,7 +880,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c8b12a1af4f78694b9df27d7c3fd5066, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  manager: {fileID: 0}
+  manager: {fileID: 841291770}
+--- !u!114 &601470169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 601470163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f7ed0821c3b7d4d962daaf25790d2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  manager: {fileID: 841291770}
 --- !u!1001 &674075416
 Prefab:
   m_ObjectHideFlags: 0
