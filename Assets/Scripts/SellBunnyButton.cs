@@ -10,10 +10,10 @@ public class SellBunnyButton : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         Button sellButton = this.GetComponent<Button>();
-        sellButton.onClick.AddListener(DeleteNearestBunny);
+        //sellButton.onClick.AddListener(DeleteNearestBunny);
 	}
 	
-    // Deletes the nearest bunny
+    // Deletes the nearest bunny - might not use this one.
     void DeleteNearestBunny()
     {
     }
