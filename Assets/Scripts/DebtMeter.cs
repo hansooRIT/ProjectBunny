@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class DebtMeter : MonoBehaviour {
 
+    public float timeSinceLastSecond;
     public float money;
     public GameObject Slider;
     public GameObject displayMoney;
@@ -12,17 +13,26 @@ public class DebtMeter : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
         money = Slider.GetComponent<Slider>().value;
+        timeSinceLastSecond = 0;
     }
 
     private void Update()
     {
-        //money += 500 * Time.deltaTime;
-        getMoney();
-        Debug.Log(money);
+        money -= 80 * Time.deltaTime;
         Slider.GetComponent<Slider>().value = money;
 
-        int truncatedMoney = (int)money;
-        displayMoney.GetComponent<Text>().text = "Money: " + truncatedMoney;
+
+
+        timeSinceLastSecond += Time.deltaTime;
+
+        // Only update every third of a second
+        if(timeSinceLastSecond > 0.3333f)
+        {
+            timeSinceLastSecond = 0.0f;
+            int truncatedMoney = (int)money;
+            displayMoney.GetComponent<Text>().text = "Money: " + truncatedMoney;
+        }
+
     }
 
     // Gets the player's money
@@ -53,18 +63,14 @@ public class DebtMeter : MonoBehaviour {
     public void getMoney()
     {
         int num = 500;
-        if(money > 49900){} // don't do anything here
-        else if(money > 49500)
+        if(money > 49853){ } // Stop adding past a certain point
+        else if(money > 49000)
         {
-            money += 1;
+            money += num / 100;
         }
-        else if(money > 45000)
+        else if(money > 10)
         {
-            money += num * 0.5f;
-        }
-        else if(money > 30000)
-        {
-            money += num / (money * 0.01f);
+            money += num * money * 0.00004f / ((money * 0.0001f) * (money * 0.0001f));
         }
         else
         {
