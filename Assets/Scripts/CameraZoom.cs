@@ -9,5 +9,6 @@ public class CameraZoom : BaseButton {
     public override void DoButtonAction()
     {
         cam.GetComponent<Camera>().orthographicSize += 1;
+        clearClick();
     }
 }

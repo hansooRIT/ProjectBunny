@@ -24,6 +24,7 @@ public class AdultBunny : Bunny {
         }
         UpdatePosition();
         CalcSteeringForces();
+        FindNearestButton();
     }
 
     void OnCollisionEnter2D(Collision2D col)

@@ -27,12 +27,12 @@ public class UpgradePen : BaseButton {
 	void Update ()
     {
         // reset the click variable here as a quick fix so that it can be used more than once
-        clicked = false;
     }
 
     public override void DoButtonAction()
     {
         upgradePenSize();
+        clearClick();
     }
 
     public void upgradePenSize()

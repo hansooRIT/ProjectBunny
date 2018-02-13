@@ -13,7 +13,7 @@ public class SellBunny : MonoBehaviour {
 	
     public void DeleteBunny()
     {
-        manager.GetComponent<DebtMeter>().getMoney(5000);
+        manager.GetComponent<DebtMeter>().getMoney(500);
     }
 
 	// Update is called once per frame

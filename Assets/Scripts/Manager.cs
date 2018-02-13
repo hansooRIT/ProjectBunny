@@ -7,6 +7,7 @@ public class Manager : MonoBehaviour {
 
     public List<GameObject> bunnyList;
     public List<GameObject> fenceList;
+    public List<GameObject> buttonList;
     public float timeLeft = 3600f; //30 Minutes?
 
 	// Use this for initialization

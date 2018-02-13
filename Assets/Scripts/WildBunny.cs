@@ -21,6 +21,7 @@ public class WildBunny : Bunny {
     {
         GameObject newBunny = Instantiate(bunny, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0.0f), Quaternion.identity);
         newBunny.GetComponent<AdultBunny>().cam = cam;
+        newBunny.GetComponent<AdultBunny>().manager = manager;
         Destroy(gameObject);
     }
 }

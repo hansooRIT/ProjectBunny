@@ -39,9 +39,14 @@ public abstract class BaseButton : MonoBehaviour
         if (!clicked)
         {
             DoButtonAction();
-            clicked = true;
-            clickTimer = 0.0f;
+            clearClick();
         }
+    }
+
+    public void clearClick()
+    {
+        clicked = true;
+        clickTimer = 0.0f;
     }
 
     public abstract void DoButtonAction();

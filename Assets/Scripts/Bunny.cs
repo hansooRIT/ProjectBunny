@@ -43,7 +43,7 @@ public class Bunny : MonoBehaviour {
     //Circular game object for the future location debug lies.
     //private GameObject futureLocObj;
     public GameObject bunnyTarget;
-    public GameObject cam;
+    public GameObject cam, manager;
     public float worth;
 
     // Use this for initialization
@@ -58,7 +58,31 @@ public class Bunny : MonoBehaviour {
 	void Update () {
         UpdatePosition();
         CalcSteeringForces();
+        FindNearestButton();
         //SetTransform();
+    }
+
+    public void FindNearestButton()
+    {
+        for (int i = 0; i < manager.gameObject.GetComponent<Manager>().buttonList.Count; i++)
+        {
+            if (bunnyTarget != null)
+            {
+                if (Vector2.Distance(new Vector2(manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.x, manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)) <
+                Vector2.Distance(new Vector2(bunnyTarget.transform.position.x, bunnyTarget.transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y))) {
+                    bunnyTarget = manager.gameObject.GetComponent<Manager>().buttonList[i];
+                }
+            }
+            else
+            {
+                Debug.Log("Trying to find new target");
+                if (Vector2.Distance(new Vector2(manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.x, manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)) < 2.5)
+                {
+                    bunnyTarget = manager.gameObject.GetComponent<Manager>().buttonList[i];
+                    Debug.Log("Found new target");
+                }
+            }
+        }
     }
 
     void OnTriggerEnter2D(Collider2D col)
@@ -83,6 +107,29 @@ public class Bunny : MonoBehaviour {
         {
             col.gameObject.GetComponent<SellBunny>().DeleteBunny();
             Destroy(gameObject);
+        }
+    }
+
+    void OnTriggerStay2D(Collider2D col)
+    {
+        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        {
+            if (col.gameObject.name == "BuyFenceButton")
+            {
+                col.gameObject.GetComponent<FenceButton>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "BuyLandButton")
+            {
+                col.gameObject.GetComponent<CameraZoom>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "UpgradeFenceButton")
+            {
+                col.gameObject.GetComponent<UpgradePen>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "BuyBunnyButton")
+            {
+                col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
+            }
         }
     }
 
@@ -145,7 +192,7 @@ public class Bunny : MonoBehaviour {
         //Gets a empty vector.
         Vector3 ultForce = Vector3.zero;
         //And if the zombie has a target...
-        if (bunnyTarget != null)
+        if (bunnyTarget != null && Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(bunnyTarget.transform.position.x, bunnyTarget.transform.position.y)) < 2.0) 
         {
             ultForce += Seek(bunnyTarget.transform.position, seekingWeight);
         }
@@ -157,6 +204,7 @@ public class Bunny : MonoBehaviour {
         {
             //Wander aimlessly otherwise.
             ultForce += Wander();
+            bunnyTarget = null;
         }
         //Loops through each obstacle and avoids it.
         /*foreach (GameObject obstacle in obstacleList)

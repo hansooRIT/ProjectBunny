@@ -28,5 +28,6 @@ public class FenceButton : BaseButton {
         manager.GetComponent<Manager>().fenceList.Add(temp);
         // add to the debt
         manager.GetComponent<DebtMeter>().spendMoney();
+        clearClick();
     }
 }
