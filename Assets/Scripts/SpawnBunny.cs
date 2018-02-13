@@ -22,7 +22,7 @@ public class SpawnBunny : MonoBehaviour {
         GameObject newBunny = Instantiate(bunny, new Vector3(UnityEngine.Random.Range(-4.0f, -25.0f), UnityEngine.Random.Range(-3.0f, 3.0f), 0.0f), Quaternion.identity);
         manager.GetComponent<Manager>().bunnyList.Add(newBunny);
         manager.GetComponent<DebtMeter>().spendMoney(250);
-        Debug.Log("Current Debt: " + manager.GetComponent<DebtMeter>().getDebt());
+        Debug.Log("Current Debt: " + manager.GetComponent<DebtMeter>().returnMoney());
     }
 
     // Update is called once per frame

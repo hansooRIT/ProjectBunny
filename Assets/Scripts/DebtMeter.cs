@@ -3,49 +3,80 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DebtMeter : MonoBehaviour {
+public class DebtMeter : MonoBehaviour
+{
 
-    public float debt;
+    public float timeSinceLastSecond;
+    public float money;
     public GameObject Slider;
+    public GameObject displayMoney;
 
-	// Use this for initialization
-	void Start () {
-        debt = Slider.GetComponent<Slider>().value;
+    // Use this for initialization
+    void Start()
+    {
+        money = Slider.GetComponent<Slider>().value;
+        timeSinceLastSecond = 0;
     }
 
     private void Update()
     {
-        debt += 500 * Time.deltaTime;
-        Slider.GetComponent<Slider>().value = debt;
+        money -= 80 * Time.deltaTime;
+        Slider.GetComponent<Slider>().value = money;
+
+
+
+        timeSinceLastSecond += Time.deltaTime;
+
+        // Only update every third of a second
+        if (timeSinceLastSecond > 0.3333f)
+        {
+            timeSinceLastSecond = 0.0f;
+            int truncatedMoney = (int)money;
+            displayMoney.GetComponent<Text>().text = "Money: " + truncatedMoney;
+        }
+
     }
 
-    // Gets the player's debt
-    public float getDebt()
+    // Gets the player's money
+    public float returnMoney()
     {
-        return debt;
+        return money;
     }
 
-    // Adds to the player's debt by a given amount
+    // Adds to the player's money by a given amount
     public void spendMoney(float num)
     {
-        debt += num;
+        money -= num;
     }
 
-    // Adds to the player's debt without a given amount
+    // Adds to the player's money without a given amount
     public void spendMoney()
     {
-        debt += 2500;
+        money -= 2500;
     }
 
-    // Subtract from the player's debt by a given amount
+    // Subtract from the player's money by a given amount
     public void getMoney(float num)
     {
-        debt -= num;
+        money += num;
     }
 
-    // Subtract from the player's debt without a given amount
+    // Subtract from the player's money without a given amount
     public void getMoney()
     {
-        debt -= 5000;
+        int num = 500;
+        if (money > 49853) { } // Stop adding past a certain point
+        else if (money > 49000)
+        {
+            money += num / 100;
+        }
+        else if (money > 10)
+        {
+            money += num * money * 0.00004f / ((money * 0.0001f) * (money * 0.0001f));
+        }
+        else
+        {
+            money += num;
+        }
     }
 }
