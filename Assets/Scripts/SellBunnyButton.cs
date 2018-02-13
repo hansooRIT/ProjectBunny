@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SellBunnyButton : MonoBehaviour {
 
@@ -8,9 +9,15 @@ public class SellBunnyButton : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		
+        Button sellButton = this.GetComponent<Button>();
+        sellButton.onClick.AddListener(DeleteNearestBunny);
 	}
 	
+    // Deletes the nearest bunny
+    void DeleteNearestBunny()
+    {
+    }
+
 	// Update is called once per frame
 	void Update () {
 		

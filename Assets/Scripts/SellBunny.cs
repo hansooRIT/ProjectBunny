@@ -13,9 +13,6 @@ public class SellBunny : MonoBehaviour {
 	
     public void DeleteBunny()
     {
-        //GameObject bunny = manager.GetComponent<Manager>().bunnyList[0];
-        //Destroy(bunny);
-        //manager.GetComponent<Manager>().bunnyList.RemoveAt(0);
         manager.GetComponent<DebtMeter>().getMoney(5000);
     }
 
