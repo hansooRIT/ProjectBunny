@@ -27,6 +27,7 @@ public class UpgradePen : BaseButton {
 	void Update ()
     {
         // reset the click variable here as a quick fix so that it can be used more than once
+
     }
 
     public override void DoButtonAction()
