@@ -23,12 +23,7 @@ public class UpgradePen : BaseButton {
         basicPen();
     }
 	
-	// Update is called once per frame
-	void Update ()
-    {
-        // reset the click variable here as a quick fix so that it can be used more than once
-        clicked = false;
-    }
+
 
     public override void DoButtonAction()
     {

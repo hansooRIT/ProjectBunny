@@ -24,7 +24,7 @@ GameObject:
   - component: {fileID: 65355456110917730}
   m_Layer: 0
   m_Name: Grey Wild Bunny
-  m_TagString: Untagged
+  m_TagString: WildBunny
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -81,6 +81,7 @@ MonoBehaviour:
   futureLoc: {x: 0, y: 0, z: 0}
   bunnyTarget: {fileID: 0}
   cam: {fileID: 0}
+  manager: {fileID: 0}
   worth: 0
   bunny: {fileID: 1103522620151112, guid: 7e4ec0903536e614b945dee2106168b3, type: 2}
 --- !u!212 &212156215959208304

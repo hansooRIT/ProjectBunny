@@ -10,6 +10,7 @@ TagManager:
   - WildBunny
   - SellButton
   - Button
+  - Fence
   layers:
   - Default
   - TransparentFX
