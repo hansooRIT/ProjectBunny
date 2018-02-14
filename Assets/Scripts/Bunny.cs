@@ -87,7 +87,7 @@ public class Bunny : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        if (col.gameObject.tag == "Button")
         {
             if (col.gameObject.name == "BuyFenceButton") {
                 col.gameObject.GetComponent<FenceButton>().DoButtonAction();
@@ -102,6 +102,7 @@ public class Bunny : MonoBehaviour {
             else if (col.gameObject.name == "BuyBunnyButton") {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
             }
+            col.gameObject.GetComponent<BaseButton>().clearBunnyClick();
         }
         if (col.gameObject.tag == "SellButton")
         {
@@ -110,9 +111,9 @@ public class Bunny : MonoBehaviour {
         }
     }
 
-    void OnTriggerStay2D(Collider2D col)
+    /*void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().bunnyClicked)
         {
             if (col.gameObject.name == "BuyFenceButton")
             {
@@ -130,8 +131,9 @@ public class Bunny : MonoBehaviour {
             {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
             }
+            col.gameObject.GetComponent<BaseButton>().clearBunnyClick();
         }
-    }
+    }*/
 
     /// <summary>
     /// UpdatePosition

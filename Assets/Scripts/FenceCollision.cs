@@ -11,8 +11,7 @@ public class FenceCollision : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		
-	}
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
@@ -21,4 +20,5 @@ public class FenceCollision : MonoBehaviour {
             //Debug.Log("bunny hit fence");
         }
     }
+
 }

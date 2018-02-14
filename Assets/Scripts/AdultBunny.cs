@@ -34,6 +34,7 @@ public class AdultBunny : Bunny {
         {
             GameObject newBunny = Instantiate(childBunny, new Vector3(UnityEngine.Random.Range(gameObject.transform.position.x - 1.0f, gameObject.transform.position.x + 1.0f), UnityEngine.Random.Range(gameObject.transform.position.y - 1, gameObject.transform.position.y + 1), 0.0f), Quaternion.identity);
             newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<Bunny>().manager = manager;
             canBreed = false;
             breedTimer = 0.0f;
         }

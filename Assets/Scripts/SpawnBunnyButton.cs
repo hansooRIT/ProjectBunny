@@ -13,6 +13,7 @@ public class SpawnBunnyButton : BaseButton {
         newBunny.GetComponent<AdultBunny>().manager = manager;
         newBunny.GetComponent<SpriteRenderer>().sortingLayerName = "Foreground";
         clearClick();
+        gameObject.transform.localScale = new Vector3(gameObject.transform.localScale.x + 0.2f, gameObject.transform.localScale.y + 0.2f, gameObject.transform.localScale.z);
         //manager.GetComponent<Manager>().bunnyList.Add(newBunny);
         //manager.GetComponent<DebtMeter>().spendMoney();
         //Debug.Log("Current Debt: " + manager.GetComponent<DebtMeter>().getDebt());

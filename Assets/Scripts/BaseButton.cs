@@ -5,24 +5,31 @@ using UnityEngine;
 public abstract class BaseButton : MonoBehaviour
 {
 
-    public bool clicked;
-    public float clickTimer;
+    public bool clicked, bunnyClicked;
+    public float clickTimer, bunnyClickTimer;
     public Sprite buttonDown;
     public Sprite buttonUp;
     // Use this for initialization
     void Start()
     {
         clicked = false;
+        bunnyClicked = false;
         clickTimer = 0.0f;
+        bunnyClickTimer = 0.0f;
     }
 
     // Update is called once per frame
     void Update()
     {
         clickTimer += Time.deltaTime;
+        bunnyClickTimer += Time.deltaTime;
         if (clickTimer > 0.3f)
         {
             clicked = false;
+        }
+        if (bunnyClickTimer > 2.5f)
+        {
+            bunnyClicked = false;
         }
     }
     public void OnMouseDown()
@@ -47,6 +54,12 @@ public abstract class BaseButton : MonoBehaviour
     {
         clicked = true;
         clickTimer = 0.0f;
+    }
+
+    public void clearBunnyClick()
+    {
+        bunnyClickTimer = 0.0f;
+        bunnyClicked = true;
     }
 
     public abstract void DoButtonAction();
