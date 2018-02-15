@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50335609812572160}
   - component: {fileID: 58993466211995476}
   - component: {fileID: 114490620779464480}
+  - component: {fileID: 114774123119983032}
   m_Layer: 0
   m_Name: Baby Bunny
   m_TagString: bunny
@@ -109,6 +110,17 @@ MonoBehaviour:
   worth: 0
   adultPrefab: {fileID: 1103522620151112, guid: 7e4ec0903536e614b945dee2106168b3,
     type: 2}
+--- !u!114 &114774123119983032
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1876119905213136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce760ef56a5bc7f4c918eb848b644125, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212713231657023542
 SpriteRenderer:
   m_ObjectHideFlags: 1
