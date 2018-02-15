@@ -29,7 +29,7 @@ public class DebtMeter : MonoBehaviour
         timeSinceLastSecond += Time.deltaTime;
 
         // Only update every third of a second
-        if (timeSinceLastSecond > 0.3333f)
+        if (timeSinceLastSecond > 1.0f)
         {
             timeSinceLastSecond = 0.0f;
             int truncatedMoney = (int)money;
