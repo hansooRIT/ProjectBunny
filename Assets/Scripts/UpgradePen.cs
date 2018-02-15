@@ -11,6 +11,7 @@ public class UpgradePen : BaseButton {
     private float imgSize = 0.5f;
     public Vector3 screenCenter;
     public List<GameObject> fences;
+    private int penUpgradeCount = 0; //used to know how to center the pen once an upgrade is purchased
 
     // Use this for initialization
     void Start ()
@@ -45,18 +46,20 @@ public class UpgradePen : BaseButton {
         }
 
         // recalculate the new pen based on the new size
+        penUpgradeCount++;
         basicPen();
     }
 
     // create a starting pen that can be upgraded in size
     public void basicPen()
     {
+
         // spawn the pieces based on the size and around the center of the screen
         for (int i = 0; i < penSize; i++)
         {
             for (int j = 0; j < penSize; j++)
             {
-                tempLocation = new Vector3(i * imgSize + (screenCenter.x -3.0f), j * imgSize + (screenCenter.y-3.0f), 0.0f);
+                tempLocation = new Vector3(i * imgSize + (screenCenter.x -1.0f) - penUpgradeCount * (imgSize / 2), j * imgSize + (screenCenter.y-1.0f) - penUpgradeCount * (imgSize / 2), 0.0f);
                 //Instantiate(penPieceImg, tempLocation, Quaternion.identity);
                 // check to see if we are at an edge where we actually want to spawn a wall
                 if (i % penSize == 0)

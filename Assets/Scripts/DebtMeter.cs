@@ -10,6 +10,7 @@ public class DebtMeter : MonoBehaviour
     public float money;
     public GameObject Slider;
     public GameObject displayMoney;
+    public GameObject minText;
 
     // Use this for initialization
     void Start()
@@ -41,6 +42,14 @@ public class DebtMeter : MonoBehaviour
     public float returnMoney()
     {
         return money;
+    }
+
+    // Increases the max debt
+    public void increaseMaxDebt(int increase)
+    {
+        Slider.GetComponent<Slider>().minValue -= increase;
+
+        minText.GetComponent<Text>().text = "$" + Slider.GetComponent<Slider>().minValue.ToString();
     }
 
     // Adds to the player's money by a given amount

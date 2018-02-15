@@ -102,7 +102,7 @@ public class Bunny : MonoBehaviour {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
             }
         }
-        if (col.gameObject.tag == "SellButton")
+        if (col.gameObject.tag == "SellButton" && this.tag == "AdultBunny")
         {
             col.gameObject.GetComponent<SellBunny>().DeleteBunny();
             Destroy(gameObject);
