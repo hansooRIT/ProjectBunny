@@ -52,6 +52,7 @@ public class Bunny : MonoBehaviour {
         //futureLocObj = transform.GetChild(0).gameObject;
         xTimestamp = Random.Range(0.0f, 500.0f);
         yTimestamp = Random.Range(0.0f, 500.0f);
+        manager.GetComponent<Manager>().bunnyList.Add(gameObject);
     }
 	
 	// Update is called once per frame
@@ -75,11 +76,9 @@ public class Bunny : MonoBehaviour {
             }
             else
             {
-                Debug.Log("Trying to find new target");
                 if (Vector2.Distance(new Vector2(manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.x, manager.gameObject.GetComponent<Manager>().buttonList[i].transform.position.y), new Vector2(gameObject.transform.position.x, gameObject.transform.position.y)) < 2.5)
                 {
                     bunnyTarget = manager.gameObject.GetComponent<Manager>().buttonList[i];
-                    Debug.Log("Found new target");
                 }
             }
         }
@@ -192,20 +191,28 @@ public class Bunny : MonoBehaviour {
         //Gets a empty vector.
         Vector3 ultForce = Vector3.zero;
         //And if the zombie has a target...
-        if (bunnyTarget != null && Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(bunnyTarget.transform.position.x, bunnyTarget.transform.position.y)) < 2.0) 
+        if (manager.GetComponent<Manager>().repellant && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), gameObject.transform.position) < 5)
         {
-            ultForce += Seek(bunnyTarget.transform.position, seekingWeight);
-        }
-        if (Mathf.Abs(gameObject.transform.position.y) > cam.GetComponent<Camera>().orthographicSize - 0.5 || Mathf.Abs(gameObject.transform.position.x) > (cam.GetComponent<Camera>().orthographicSize * 2) + 1)
-        {
-            ultForce += Seek(new Vector3(0.0f, 0.0f, 0.0f), seekingWeight);
+            ultForce += Flee(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), 5.0f);
         }
         else
         {
-            //Wander aimlessly otherwise.
-            ultForce += Wander();
-            bunnyTarget = null;
+            if (bunnyTarget != null && Vector2.Distance(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y), new Vector2(bunnyTarget.transform.position.x, bunnyTarget.transform.position.y)) < 2.0)
+            {
+                ultForce += Seek(bunnyTarget.transform.position, seekingWeight);
+            }
+            if (Mathf.Abs(gameObject.transform.position.y) > cam.GetComponent<Camera>().orthographicSize - 0.5 || Mathf.Abs(gameObject.transform.position.x) > (cam.GetComponent<Camera>().orthographicSize * 2) + 1)
+            {
+                ultForce += Seek(new Vector3(0.0f, 0.0f, 0.0f), seekingWeight);
+            }
+            else
+            {
+                //Wander aimlessly otherwise.
+                ultForce += Wander();
+                bunnyTarget = null;
+            }
         }
+ 
         //Loops through each obstacle and avoids it.
         /*foreach (GameObject obstacle in obstacleList)
         {

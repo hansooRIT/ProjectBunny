@@ -20,6 +20,8 @@ public class BabyBunny : Bunny {
         {
             GameObject newBunny = Instantiate(adultPrefab, new Vector3(gameObject.transform.position.x, gameObject.transform.position.y, 0.0f), Quaternion.identity);
             newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<AdultBunny>().manager = manager;
+            manager.GetComponent<Manager>().bunnyList.Add(newBunny);
             Destroy(gameObject);
         }
         UpdatePosition();

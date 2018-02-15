@@ -9,19 +9,49 @@ public class Manager : MonoBehaviour {
     public List<GameObject> fenceList;
     public List<GameObject> buttonList;
     public float timeLeft = 3600f; //30 Minutes?
+    float spawnTimer = 0.0f;
+
+    public GameObject wildBunny, cam;
+    public bool repellant;
 
 	// Use this for initialization
 	void Start () {
+        repellant = false;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
         timeLeft -= Time.deltaTime;
-
         if(timeLeft < 0)
         {
             //Insert Game Over function call
+        }
+
+        spawnTimer += Time.deltaTime;
+        if (bunnyList.Count > 50)
+        {
+            if (spawnTimer > 1)
+            {
+                SpawnBunny();
+                spawnTimer = 0.0f;
+            }
+        }
+        else
+        {
+            if (spawnTimer > 5 - (1 * (bunnyList.Count / 10)))
+            {
+                SpawnBunny();
+                spawnTimer = 0.0f;
+            }
+        }
+       if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
+        {
+            repellant = true;
+            Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        }
+       else
+        {
+            repellant = false;
         }
 
         //Debug.Log("Countdown: " + timeLeft);
@@ -30,6 +60,9 @@ public class Manager : MonoBehaviour {
 
     void SpawnBunny()
     {
-
+        GameObject newBunny = Instantiate(wildBunny, new Vector3(UnityEngine.Random.Range(-((cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), (cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), UnityEngine.Random.Range(-(cam.GetComponent<Camera>().orthographicSize - 0.5f), cam.GetComponent<Camera>().orthographicSize - 0.5f), 1.0f), Quaternion.identity);
+        newBunny.GetComponent<Bunny>().cam = cam;
+        newBunny.GetComponent<Bunny>().manager = gameObject;
+        bunnyList.Add(newBunny);
     }
 }
