@@ -86,7 +86,7 @@ public class Bunny : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        if (col.gameObject.tag == "Button")
         {
             if (col.gameObject.name == "BuyFenceButton") {
                 col.gameObject.GetComponent<FenceButton>().DoButtonAction();
@@ -101,6 +101,7 @@ public class Bunny : MonoBehaviour {
             else if (col.gameObject.name == "BuyBunnyButton") {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
             }
+            col.gameObject.GetComponent<BaseButton>().clearBunnyClick();
         }
         // no tag check means all bunnies are sold
         /*
