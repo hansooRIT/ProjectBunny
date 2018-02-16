@@ -2,16 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+//using UnityEngine.SceneManagement;
 
 public class Manager : MonoBehaviour {
 
     public List<GameObject> bunnyList;
     public List<GameObject> fenceList;
     public List<GameObject> buttonList;
-    public float timeLeft = 3600f; //30 Minutes?
+    //public float timeLeft = 1200f; //10 Minutes?
     float spawnTimer = 0.0f;
 
-    public GameObject wildBunny, cam;
+    public GameObject wildBunny, cam, debt;
     public bool repellant;
 
 	// Use this for initialization
@@ -21,11 +22,14 @@ public class Manager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        /*
         timeLeft -= Time.deltaTime;
         if(timeLeft < 0)
         {
-            //Insert Game Over function call
+            //Send the play to the GameOver scene
+            SceneManager.LoadScene("GameOver");
         }
+        */
 
         spawnTimer += Time.deltaTime;
         if (bunnyList.Count > 50)

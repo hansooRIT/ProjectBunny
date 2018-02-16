@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour {
 
@@ -27,6 +28,12 @@ public class Timer : MonoBehaviour {
         if(currentSeconds >= 60.0f)
         {
             currentMinutes++;
+            //If 10 minutes is reached, send to the GameOver scene
+            if(currentMinutes >= 10)
+            {
+                SceneManager.LoadScene("Victory");
+            }
+
             currentSeconds = 0;
 
             // Check if 2 minutes have passed
@@ -38,7 +45,6 @@ public class Timer : MonoBehaviour {
                 other.increaseMaxDebt(5000);
             }
         }
-
 
         // Change from a float to an int to be readable
         int truncatedSeconds = (int)currentSeconds;
