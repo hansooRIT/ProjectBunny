@@ -8,6 +8,7 @@ public class Manager : MonoBehaviour {
     public List<GameObject> bunnyList;
     public List<GameObject> fenceList;
     public List<GameObject> buttonList;
+    public Texture2D broom;
     public float timeLeft = 3600f; //30 Minutes?
     float spawnTimer = 0.0f;
 
@@ -46,11 +47,13 @@ public class Manager : MonoBehaviour {
         }
        if (Input.GetMouseButtonDown(1) || Input.GetMouseButton(1))
         {
+            Cursor.SetCursor(broom, Vector2.zero, CursorMode.Auto);
             repellant = true;
             Debug.Log(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         }
        else
         {
+            Cursor.SetCursor(null, Vector2.zero, CursorMode.Auto);
             repellant = false;
         }
 
