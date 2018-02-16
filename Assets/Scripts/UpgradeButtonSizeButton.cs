@@ -9,6 +9,9 @@ public class UpgradeButtonSizeButton : BaseButton {
     // separate check for the sellButton
     private GameObject sellButton;
 
+    //Reference to DebtMeter
+    public GameObject debtManager;
+
     /*
     // Use this for initialization
     void Start () {
@@ -25,9 +28,12 @@ public class UpgradeButtonSizeButton : BaseButton {
         // get the buttons
         buttons = GameObject.FindGameObjectsWithTag("Button");
         sellButton = GameObject.FindGameObjectWithTag("SellButton");
-        
+
+        //Get DebtMeter
+        debtManager = GameObject.Find("Manager");
+
         // loop through buttons
-        foreach(GameObject button in buttons)
+        foreach (GameObject button in buttons)
         {
             // set the new scale
             button.transform.localScale += new Vector3(0.2f, 0.2f, 0.0f);
@@ -35,6 +41,9 @@ public class UpgradeButtonSizeButton : BaseButton {
 
         // set Sell Button scale
         sellButton.transform.localScale += new Vector3(0.2f, 0.2f, 0.0f);
+
+        //Spends Money
+        debtManager.GetComponent<DebtMeter>().spendMoney(2500);
 
         clearClick(); // resets the click variable
     }
