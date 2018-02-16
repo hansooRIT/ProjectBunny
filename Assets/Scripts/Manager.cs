@@ -60,9 +60,34 @@ public class Manager : MonoBehaviour {
 
     void SpawnBunny()
     {
-        GameObject newBunny = Instantiate(wildBunny, new Vector3(UnityEngine.Random.Range(-((cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), (cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), UnityEngine.Random.Range(-(cam.GetComponent<Camera>().orthographicSize - 0.5f), cam.GetComponent<Camera>().orthographicSize - 0.5f), 1.0f), Quaternion.identity);
-        newBunny.GetComponent<Bunny>().cam = cam;
-        newBunny.GetComponent<Bunny>().manager = gameObject;
-        bunnyList.Add(newBunny);
+        int random = Random.Range(1, 4);
+        if (random == 1)
+        {
+            GameObject newBunny = Instantiate(wildBunny, new Vector3(-(cam.GetComponent<Camera>().orthographicSize * 3.0f), UnityEngine.Random.Range(-(cam.GetComponent<Camera>().orthographicSize - 0.5f), cam.GetComponent<Camera>().orthographicSize - 0.5f), 1.0f), Quaternion.identity);
+            newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<Bunny>().manager = gameObject;
+            bunnyList.Add(newBunny);
+        }
+        else if (random == 2)
+        {
+            GameObject newBunny = Instantiate(wildBunny, new Vector3((cam.GetComponent<Camera>().orthographicSize * 3.0f), UnityEngine.Random.Range(-(cam.GetComponent<Camera>().orthographicSize - 0.5f), cam.GetComponent<Camera>().orthographicSize - 0.5f), 1.0f), Quaternion.identity);
+            newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<Bunny>().manager = gameObject;
+            bunnyList.Add(newBunny);
+        }
+        else if (random == 3)
+        {
+            GameObject newBunny = Instantiate(wildBunny, new Vector3(UnityEngine.Random.Range(-((cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), (cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), (cam.GetComponent<Camera>().orthographicSize * 1.5f), 1.0f), Quaternion.identity);
+            newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<Bunny>().manager = gameObject;
+            bunnyList.Add(newBunny);
+        }
+        else
+        {
+            GameObject newBunny = Instantiate(wildBunny, new Vector3(UnityEngine.Random.Range(-((cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), (cam.GetComponent<Camera>().orthographicSize * 2.0f) + 1), -(cam.GetComponent<Camera>().orthographicSize * 1.5f), 1.0f), Quaternion.identity);
+            newBunny.GetComponent<Bunny>().cam = cam;
+            newBunny.GetComponent<Bunny>().manager = gameObject;
+            bunnyList.Add(newBunny);
+        }
     }
 }

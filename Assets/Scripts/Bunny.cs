@@ -102,9 +102,24 @@ public class Bunny : MonoBehaviour {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
             }
         }
+        // no tag check means all bunnies are sold
+        /*
+        if (col.gameObject.tag == "SellButton")
+        {
+            manager.GetComponent<DebtMeter>().getMoney(worth);
+            Destroy(gameObject);
+        }
+        */
+        // sells adult bunnies
         if (col.gameObject.tag == "SellButton" && this.tag == "AdultBunny")
         {
-            col.gameObject.GetComponent<SellBunny>().DeleteBunny();
+            manager.GetComponent<DebtMeter>().getMoney(worth);
+            Destroy(gameObject);
+        }
+        // sells baby bunnies
+        if (col.gameObject.tag == "SellButton" && this.tag == "bunny")
+        {
+            manager.GetComponent<DebtMeter>().getMoney(worth);
             Destroy(gameObject);
         }
     }
@@ -128,6 +143,10 @@ public class Bunny : MonoBehaviour {
             else if (col.gameObject.name == "BuyBunnyButton")
             {
                 col.gameObject.GetComponent<SpawnBunnyButton>().DoButtonAction();
+            }
+            else if (col.gameObject.name == "UpgradeButtonSizeButton")
+            {
+                col.gameObject.GetComponent<UpgradeButtonSizeButton>().DoButtonAction();
             }
         }
     }

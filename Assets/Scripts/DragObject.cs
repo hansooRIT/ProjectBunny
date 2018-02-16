@@ -21,7 +21,7 @@ public class DragObject : MonoBehaviour {
         transform.position = new Vector3(pos_move.x, pos_move.y, pos_move.z);
 
         // if dragging a bunny, disable the collider temporarily
-        if(gameObject.tag == "AdultBunny" || gameObject.tag == "bunny" || gameObject.tag == "WildBunny")
+        if(gameObject.tag == "AdultBunny" || gameObject.tag == "bunny" || gameObject.tag == "WildBunny" || gameObject.tag == "Baby")
         {
             this.gameObject.GetComponent<CircleCollider2D>().enabled = false;
         }
@@ -34,7 +34,7 @@ public class DragObject : MonoBehaviour {
     private void OnMouseUp()
     {
         //re-enable the collider when no longer dragging
-        if (gameObject.tag == "AdultBunny" || gameObject.tag == "bunny" || gameObject.tag == "WildBunny")
+        if (gameObject.tag == "AdultBunny" || gameObject.tag == "bunny" || gameObject.tag == "WildBunny" || gameObject.tag == "Baby")
         {
             this.gameObject.GetComponent<CircleCollider2D>().enabled = true;
         }
