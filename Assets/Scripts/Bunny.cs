@@ -119,7 +119,7 @@ public class Bunny : MonoBehaviour {
         // sells baby bunnies
         if (col.gameObject.tag == "SellButton" && this.tag == "bunny")
         {
-            manager.GetComponent<DebtMeter>().getMoney(worth);
+            manager.GetComponent<DebtMeter>().getMoney(worth*2.0f); // baby bunny worth more
             Destroy(gameObject);
         }
     }
