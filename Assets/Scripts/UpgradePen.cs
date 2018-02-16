@@ -65,7 +65,7 @@ public class UpgradePen : BaseButton {
                 if (i % penSize == 0)
                 {
                     // add to the debt and create a piece
-                    manager.GetComponent<DebtMeter>().spendMoney(500);
+                    manager.GetComponent<DebtMeter>().spendMoney(250);
                     GameObject tempFence = Instantiate(penPieceImg, tempLocation, Quaternion.identity);
                     // add to list
                     fences.Add(tempFence);
@@ -73,7 +73,7 @@ public class UpgradePen : BaseButton {
                 if (i % penSize == penSize - 1)
                 {
                     // add to the debt and create a piece
-                    manager.GetComponent<DebtMeter>().spendMoney(500);
+                    manager.GetComponent<DebtMeter>().spendMoney(250);
                     GameObject tempFence = Instantiate(penPieceImg, tempLocation, Quaternion.identity);
                     // add to list
                     fences.Add(tempFence);
@@ -81,7 +81,7 @@ public class UpgradePen : BaseButton {
                 if (j % penSize == penSize - 1 && i > 0 && i < penSize - 1)
                 {
                     // add to the debt and create a piece
-                    manager.GetComponent<DebtMeter>().spendMoney(500);
+                    manager.GetComponent<DebtMeter>().spendMoney(250);
                     GameObject tempFence = Instantiate(penPieceImg, tempLocation, Quaternion.identity);
                     // add to list
                     fences.Add(tempFence);
@@ -89,7 +89,7 @@ public class UpgradePen : BaseButton {
                 if (j % penSize == 0 && i > 0 && i < penSize - 1)
                 {
                     // add to the debt and create a piece
-                    manager.GetComponent<DebtMeter>().spendMoney(500);
+                    manager.GetComponent<DebtMeter>().spendMoney(250);
                     GameObject tempFence = Instantiate(penPieceImg, tempLocation, Quaternion.identity);
                     // add to list
                     fences.Add(tempFence);

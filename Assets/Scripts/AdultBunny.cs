@@ -10,7 +10,7 @@ public class AdultBunny : Bunny {
 
 	// Use this for initialization
 	void Start(){
-        worth = 100.0f;
+        worth = 200.0f;
         canBreed = false;
         breedTimer = 10.0f;
 	}
@@ -18,7 +18,7 @@ public class AdultBunny : Bunny {
 	// Update is called once per frame
 	void Update () {
 		breedTimer += Time.deltaTime;
-        if (breedTimer > 10.0)
+        if (breedTimer > 40.0)
         {
             canBreed = true;
         }

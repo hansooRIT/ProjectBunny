@@ -42,7 +42,7 @@ public class Timer : MonoBehaviour {
             // Call the increase max debt method every 2 minutes
             if (minuteCheck)
             {
-                other.increaseMaxDebt(5000);
+                other.increaseMaxDebt(10000);
             }
         }
 

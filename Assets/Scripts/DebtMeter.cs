@@ -28,7 +28,7 @@ public class DebtMeter : MonoBehaviour
 
     private void Update()
     {
-        money -= 80 * Time.deltaTime;
+        money -= 25 * Time.deltaTime;
         Slider.GetComponent<Slider>().value = money;
 
 

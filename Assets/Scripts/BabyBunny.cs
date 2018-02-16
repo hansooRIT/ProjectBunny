@@ -9,7 +9,7 @@ public class BabyBunny : Bunny {
 
 	// Use this for initialization
 	void Start () {
-        worth = 50.0f;
+        worth = 200.0f;
         growthTimer = 0.0f;
 	}
 	

@@ -128,7 +128,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &667755
 RectTransform:
   m_ObjectHideFlags: 0
@@ -637,7 +637,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 293852748}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 673, y: 319, z: 0}
+  m_LocalPosition: {x: 580, y: 272.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 505890630}
@@ -813,9 +813,11 @@ MonoBehaviour:
   bunnyClicked: 0
   clickTimer: 0
   bunnyClickTimer: 0
+  buttonHoldTimer: 0
   buttonDown: {fileID: 21300000, guid: cd69d1556b784214d824aaa922e869a4, type: 3}
   buttonUp: {fileID: 21300000, guid: e39f74381935f6f438c5734d07b70f1c, type: 3}
   buttons: []
+  debtManager: {fileID: 0}
 --- !u!1 &505890629
 GameObject:
   m_ObjectHideFlags: 0
@@ -840,7 +842,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 505890629}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 20.100006, y: -174.37, z: 0}
+  m_LocalPosition: {x: -0.000030517578, y: -498.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 735072800}
@@ -854,7 +856,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 20.100006, y: -493.37}
+  m_AnchoredPosition: {x: -0.000030517, y: -771}
   m_SizeDelta: {x: 103.2, y: 105.38}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &505890631
@@ -868,41 +870,7 @@ MonoBehaviour:
   m_Script: {fileID: -1862395651, guid: f70555f144d8491a825f0804e09c671c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_Delegates:
-  - eventID: 5
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 505890632}
-          m_MethodName: OnDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  - eventID: 13
-    callback:
-      m_PersistentCalls:
-        m_Calls:
-        - m_Target: {fileID: 505890632}
-          m_MethodName: BeginDrag
-          m_Mode: 1
-          m_Arguments:
-            m_ObjectArgument: {fileID: 0}
-            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 0
-            m_FloatArgument: 0
-            m_StringArgument: 
-            m_BoolArgument: 0
-          m_CallState: 2
-      m_TypeName: UnityEngine.EventSystems.EventTrigger+TriggerEvent, UnityEngine.UI,
-        Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
+  m_Delegates: []
   delegates: []
 --- !u!114 &505890632
 MonoBehaviour:
@@ -1067,7 +1035,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 718429085}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -287, z: 0}
+  m_LocalPosition: {x: 0, y: -240.5, z: 0}
   m_LocalScale: {x: 13.434172, y: 0.59995705, z: 1}
   m_Children: []
   m_Father: {fileID: 293852753}
@@ -1339,7 +1307,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 811886211}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 673, y: 319, z: 0}
+  m_LocalPosition: {x: 580, y: 272.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 810461304}
@@ -1406,6 +1374,7 @@ MonoBehaviour:
   timeLeft: 3600
   wildBunny: {fileID: 1110213084347794, guid: 44b72177978fcca4aac571995fe50aa2, type: 2}
   cam: {fileID: 101727412}
+  debt: {fileID: 0}
   repellant: 0
 --- !u!4 &841291772
 Transform:
@@ -1433,6 +1402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSinceLastSecond: 0
   money: 0
+  maxDebt: 0
   Slider: {fileID: 1701429852}
   displayMoney: {fileID: 227783590}
   minText: {fileID: 39255223}
@@ -1652,7 +1622,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1006233197}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -399.99997, y: -240, z: 0}
+  m_LocalPosition: {x: -399.4, y: -239.56, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 293852753}
@@ -1660,7 +1630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -400, y: -240}
+  m_AnchoredPosition: {x: -399.4, y: -239.56}
   m_SizeDelta: {x: 361.2, y: 65.7}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1006233199
@@ -1695,7 +1665,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: "\tPlay Time: "
+  m_Text: 'Play Time: '
 --- !u!222 &1006233200
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1933,10 +1903,12 @@ MonoBehaviour:
   bunnyClicked: 0
   clickTimer: 0
   bunnyClickTimer: 0
+  buttonHoldTimer: 0
   buttonDown: {fileID: 21300000, guid: d6a49362e9676c940a07c681f74295c6, type: 3}
   buttonUp: {fileID: 21300000, guid: a606c88db0e868846b3f09218d303954, type: 3}
   cam: {fileID: 101727412}
   background: {fileID: 118819486}
+  debtManager: {fileID: 0}
 --- !u!1 &1388610376
 GameObject:
   m_ObjectHideFlags: 0
@@ -1961,7 +1933,7 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1388610376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 434, y: -224, z: 0}
+  m_LocalPosition: {x: 404.4, y: -239.58002, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 293852753}
@@ -1969,7 +1941,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 434, y: -224}
+  m_AnchoredPosition: {x: 404.4, y: -239.58}
   m_SizeDelta: {x: 351.2, y: 65.75}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1388610378

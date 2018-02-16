@@ -6,7 +6,7 @@ public abstract class BaseButton : MonoBehaviour
 {
 
     public bool clicked , bunnyClicked;
-    public float clickTimer, bunnyClickTimer;
+    public float clickTimer, bunnyClickTimer, buttonHoldTimer;
     public Sprite buttonDown;
     public Sprite buttonUp;
     // Use this for initialization
@@ -16,6 +16,8 @@ public abstract class BaseButton : MonoBehaviour
         bunnyClicked = false;
         clickTimer = 0.0f;
         bunnyClickTimer = 0.0f;
+
+        buttonHoldTimer = 0f;
     }
 
     // Update is called once per frame
@@ -31,10 +33,20 @@ public abstract class BaseButton : MonoBehaviour
         {
             bunnyClicked = false;
         }
+
+        //Track length of time holding the mouse button down
+        //Allows you to drag buttons without activating the button
+        if(Input.GetMouseButton(0))
+        {
+            buttonHoldTimer += Time.deltaTime;
+            //Debug.Log("Timer: " + buttonHoldTimer);
+        }
     }
     public void OnMouseDown()
     {
         GetComponent<SpriteRenderer>().sprite = buttonDown;
+
+        buttonHoldTimer = 0f; //Resets timer
     }
     void OnMouseExit()
     {
@@ -43,10 +55,12 @@ public abstract class BaseButton : MonoBehaviour
     void OnMouseUp()
     {
         GetComponent<SpriteRenderer>().sprite = buttonUp;
-        if (!clicked)
+        if (!clicked && buttonHoldTimer < 0.15f)
         {
             DoButtonAction();
             clearClick();
+
+            buttonHoldTimer = 0f; //Resets timer
         }
     }
 

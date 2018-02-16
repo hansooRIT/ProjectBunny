@@ -43,7 +43,7 @@ public class UpgradeButtonSizeButton : BaseButton {
         sellButton.transform.localScale += new Vector3(0.2f, 0.2f, 0.0f);
 
         //Spends Money
-        debtManager.GetComponent<DebtMeter>().spendMoney(2500);
+        debtManager.GetComponent<DebtMeter>().spendMoney(500);
 
         clearClick(); // resets the click variable
     }
