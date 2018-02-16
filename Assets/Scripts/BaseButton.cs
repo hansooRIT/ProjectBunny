@@ -27,7 +27,7 @@ public abstract class BaseButton : MonoBehaviour
         {
             clicked = false;
         }
-        if (bunnyClickTimer > 2.5f)
+        if (bunnyClickTimer > 2.0f)
         {
             bunnyClicked = false;
         }

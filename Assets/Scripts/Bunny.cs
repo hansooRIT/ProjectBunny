@@ -90,6 +90,7 @@ public class Bunny : MonoBehaviour {
         {
             if (col.gameObject.name == "BuyFenceButton") {
                 col.gameObject.GetComponent<FenceButton>().DoButtonAction();
+
             }
             else if (col.gameObject.name == "BuyLandButton"){
                 col.gameObject.GetComponent<CameraZoom>().DoButtonAction();
@@ -127,7 +128,7 @@ public class Bunny : MonoBehaviour {
 
     void OnTriggerStay2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().clicked)
+        if (col.gameObject.tag == "Button" && !col.gameObject.GetComponent<BaseButton>().bunnyClicked)
         {
             if (col.gameObject.name == "BuyFenceButton")
             {
@@ -149,6 +150,7 @@ public class Bunny : MonoBehaviour {
             {
                 col.gameObject.GetComponent<UpgradeButtonSizeButton>().DoButtonAction();
             }
+            col.gameObject.GetComponent<BaseButton>().clearBunnyClick();
         }
     }
 
@@ -211,7 +213,7 @@ public class Bunny : MonoBehaviour {
         //Gets a empty vector.
         Vector3 ultForce = Vector3.zero;
         //And if the zombie has a target...
-        if (manager.GetComponent<Manager>().repellant && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), gameObject.transform.position) < 5)
+        if (manager.GetComponent<Manager>().repellant && Vector2.Distance(Camera.main.ScreenToWorldPoint(Input.mousePosition), gameObject.transform.position) < 3)
         {
             ultForce += Flee(new Vector3(Camera.main.ScreenToWorldPoint(Input.mousePosition).x, Camera.main.ScreenToWorldPoint(Input.mousePosition).y, 0.0f), 5.0f);
         }
