@@ -97,7 +97,7 @@ MonoBehaviour:
   seekingWeight: 2.5
   maximumForce: 10
   mass: 2
-  maxSpeed: 1
+  maxSpeed: 0.5
   radius: 0
   wanderWeight: 0.5
   wanderRadius: 3
